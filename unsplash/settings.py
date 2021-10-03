@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+from .env import (POSTGRES_ENGINE, POSTGRES_HOST, POSTGRES_NAME,
+                 POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_USER)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,8 +79,12 @@ WSGI_APPLICATION = 'unsplash.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': POSTGRES_ENGINE,
+        'NAME': POSTGRES_NAME,
+        'USER': POSTGRES_USER,
+        'HOST': POSTGRES_HOST,
+        'PASSWORD': POSTGRES_PASSWORD,
+        'PORT': POSTGRES_PORT
     }
 }
 
