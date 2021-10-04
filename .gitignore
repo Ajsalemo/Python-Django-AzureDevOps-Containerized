@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 # Static generated files from Django
+/staticfiles
+/staticfiles/
