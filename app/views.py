@@ -1,10 +1,11 @@
 import logging
 
 from django.http import HttpResponse
-
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the app index.")
+    title='Unsplash'
+    return render(request, 'app/index.html', {'title': title})
 
 
 def health(request):
