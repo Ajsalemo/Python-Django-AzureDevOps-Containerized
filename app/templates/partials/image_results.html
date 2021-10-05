@@ -1,0 +1,13 @@
+{% if search_photos_json %}
+<ul>
+  {% for image in search_photos_json %}
+  <img
+    src="{{ image.urls.small }}"
+    class="rounded float-end"
+    alt="{{ image.description }}"
+  />
+  {% endfor %}
+</ul>
+{% else %}
+<p>Not loaded</p>
+{% endif %}
