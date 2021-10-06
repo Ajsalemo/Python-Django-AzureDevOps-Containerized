@@ -3,7 +3,7 @@
     position-relative
     overflow-hidden
     p-3 p-md-5
-    m-md-3
+    mb-5
     text-center
     bg-light
   "
@@ -13,8 +13,8 @@
     <p class="lead fw-normal">
       Search for pre-defined image categories with the below selected buttons.
     </p>
-    <button class="btn btn-outline-secondary">Coming soon</button>
-    <button class="btn btn-outline-secondary">Coming soon</button>
+    <button class="btn btn-outline-secondary" onclick="location.href='{% url 'nyc' %}'">New York City</button>
+    <button class="btn btn-outline-secondary" onclick="location.href='{% url 'architecture' %}'">Architecture</button>
     <button class="btn btn-outline-secondary">Coming soon</button>
   </div>
   <div class="product-device shadow-sm d-none d-md-block"></div>
