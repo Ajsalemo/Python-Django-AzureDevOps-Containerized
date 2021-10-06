@@ -27,6 +27,13 @@ def architecture(request):
     return render(request, 'app/index.html', {'search_photos_json': search_architecture_photos_json['results']})
 
 
+def germany(request):
+    search_germany_photos = requests.get(
+        f'{UNSPLASH_API_PREFIX}/search/photos?query="germany"', headers={'Authorization': f'Client-ID {UNSPLASH_API_ACCESS_KEY}'})
+    search_germany_photos_json = search_germany_photos.json()
+    return render(request, 'app/index.html', {'search_photos_json': search_germany_photos_json['results']})
+
+
 def health(request):
     try:
         return HttpResponse("OK.")
