@@ -1,6 +1,6 @@
 # Python-Django-AzureDevOps-Containerized
 
-A Containerized Django application with Bootstrap that displays some pre-defined images from Unslpash. Deployed using Azure DevOps pipelines.
+A Containerized Django application with Bootstrap that displays some pre-defined images from Unsplash. Deployed using Azure DevOps pipelines.
 
 Steps to run:
 - This can be ran and deployed with and without containerization.
