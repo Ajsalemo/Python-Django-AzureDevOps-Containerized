@@ -2,7 +2,7 @@ import logging
 
 import requests
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from unsplash.env import UNSPLASH_API_ACCESS_KEY, UNSPLASH_API_PREFIX
 
 
@@ -33,10 +33,13 @@ def germany(request):
     search_germany_photos_json = search_germany_photos.json()
     return render(request, 'app/index.html', {'search_photos_json': search_germany_photos_json['results']})
 
-
 def health(request):
     try:
         return HttpResponse("OK.")
     except Exception as err:
         logging.error(err)
         raise
+
+def handler404(request, exception):
+    return redirect('index')
+
