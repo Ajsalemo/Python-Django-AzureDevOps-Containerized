@@ -10,11 +10,11 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '7799e25d-7c30-409e-9a58-fd302d10dafb'
-  imageRepository: 'pythondjangoazuredevopscontainerized'
-  containerRegistry: 'ansalemocontainerregistry.azurecr.io'
+  dockerRegistryServiceConnection: '<SERVICE CONNECTION>'
+  imageRepository: '<DOCKER IMAGE NAME>'
+  containerRegistry: '<ACR NAME>.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  webAppName: 'ansalemo-django-custom-image'
+  webAppName: '<WEB APP NAME>'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -48,7 +48,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Ansalemo(4388fa06-bf66-4497-82c2-991ba75ecb97)'
+        azureSubscription: '<SUBSCRIPTION>'
         appType: 'webAppContainer'
         WebAppName: '$(webAppName)'
         DockerNamespace: '$(containerRegistry)'
