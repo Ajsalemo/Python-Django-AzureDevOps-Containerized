@@ -1,4 +1,4 @@
-#!/bin/bash
+// This file just houses the below command to be ran via Azure CLI by copying/pasting into the terminal
 
 az deployment group create \
   --resource-group "$RESOURCE_GROUP" \
