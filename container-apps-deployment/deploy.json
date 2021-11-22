@@ -11,6 +11,36 @@
         },
         "name": {
             "type": "String"
+        },
+        "acr-password": {
+            "type": "String"
+        },
+        "postgres-engine-secret-ref": {
+            "type": "String"
+        },
+        "postgres-name-secret-ref": {
+            "type": "String"
+        },
+        "postgres-user-secret-ref": {
+            "type": "String"
+        },
+        "postgres-host-secret-ref": {
+            "type": "String"
+        },
+        "postgres-port-secret-ref": {
+            "type": "String"
+        },
+        "postgres-password-secret-ref": {
+            "type": "String"
+        },
+        "unsplash-api-prefix-secret-ref": {
+            "type": "String"
+        },
+        "unsplash-api-access-key-secret-ref": {
+            "type": "String"
+        },
+        "unsplash-api-secret-key-secret-ref": {
+            "type": "String"
         }
     },
     "variables": {},
@@ -31,43 +61,43 @@
                     "secrets": [
                         {
                             "name": "acr-password",
-                            "value": "<VALUE>"
+                            "value": "[parameters('acr-password')]"
                         },
                         {
                             "name": "postgres-engine-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-engine-secret-ref')]"
                         },
                         {
                             "name": "postgres-name-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-name-secret-ref')]"
                         },
                         {
                             "name": "postgres-user-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-user-secret-ref')]"
                         },
                         {
                             "name": "postgres-host-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-host-secret-ref')]"
                         },
                         {
                             "name": "postgres-port-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-port-secret-ref')]"
                         },
                         {
                             "name": "postgres-password-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('postgres-password-secret-ref')]"
                         },
                         {
                             "name": "unsplash-api-prefix-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('unsplash-api-prefix-secret-ref')]"
                         },
                         {
                             "name": "unsplash-api-access-key-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('unsplash-api-access-key-secret-ref')]"
                         },
                         {
                             "name": "unsplash-api-secret-key-secret-ref",
-                            "value": "<VALUE>"
+                            "value": "[parameters('unsplash-api-secret-key-secret-ref')]"
                         }
                     ],
                     "registries": [
