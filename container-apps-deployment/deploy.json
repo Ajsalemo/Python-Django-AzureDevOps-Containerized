@@ -102,8 +102,8 @@
                     ],
                     "registries": [
                         {
-                            "server": "ansalemocontainerregistry.azurecr.io",
-                            "username": "ansalemoContainerRegistry",
+                            "server": "<AZURE_CONTAINER_REGISTRY>.azurecr.io",
+                            "username": "<AZURE_CONTAINER_REGISTRY_USERNAME>",
                             "passwordSecretRef": "acr-password"
                         }
                     ]
@@ -111,8 +111,8 @@
                 "template": {
                     "containers": [
                         {
-                            "image": "ansalemocontainerregistry.azurecr.io/pythondjangoazuredevopscontainerized:771",
-                            "name": "ansalemo-django-image-2",
+                            "image": "<AZURE_CONTAINER_REGISTRY>.azurecr.io/<IMAGE>:<TAG>",
+                            "name": "<CONTAINER_NAME>",
                             "resources": {
                                 "cpu": 0.5,
                                 "memory": "1Gi"
