@@ -1,0 +1,138 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "defaultValue": "canadacentral",
+            "type": "String"
+        },
+        "environment_name": {
+            "type": "String"
+        },
+        "name": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "name": "[parameters('name')]",
+            "type": "Microsoft.Web/containerApps",
+            "apiVersion": "2021-03-01",
+            "kind": "containerapp",
+            "location": "[parameters('location')]",
+            "properties": {
+                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "configuration": {
+                    "ingress": {
+                        "external": true,
+                        "targetPort": 8000
+                    },
+                    "secrets": [
+                        {
+                            "name": "acr-password",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-engine-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-name-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-user-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-host-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-port-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "postgres-password-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "unsplash-api-prefix-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "unsplash-api-access-key-secret-ref",
+                            "value": "<VALUE>"
+                        },
+                        {
+                            "name": "unsplash-api-secret-key-secret-ref",
+                            "value": "<VALUE>"
+                        }
+                    ],
+                    "registries": [
+                        {
+                            "server": "ansalemocontainerregistry.azurecr.io",
+                            "username": "ansalemoContainerRegistry",
+                            "passwordSecretRef": "acr-password"
+                        }
+                    ]
+                },
+                "template": {
+                    "containers": [
+                        {
+                            "image": "ansalemocontainerregistry.azurecr.io/pythondjangoazuredevopscontainerized:771",
+                            "name": "ansalemo-django-image-2",
+                            "resources": {
+                                "cpu": 0.5,
+                                "memory": "1Gi"
+                            },
+                            "env": [
+                                {
+                                    "name": "POSTGRES_ENGINE",
+                                    "secretRef": "postgres-engine-secret-ref"
+                                },
+                                {
+                                    "name": "POSTGRES_NAME",
+                                    "secretRef": "postgres-name-secret-ref"
+                                },
+                                {
+                                    "name": "POSTGRES_USER",
+                                    "secretRef": "postgres-user-secret-ref"
+                                },
+                                {
+                                    "name": "POSTGRES_HOST",
+                                    "secretRef": "postgres-host-secret-ref"
+                                },
+                                {
+                                    "name": "POSTGRES_PASSWORD",
+                                    "secretRef": "postgres-password-secret-ref"
+                                },
+                                {
+                                    "name": "POSTGRES_PORT",
+                                    "secretRef": "postgres-port-secret-ref"
+                                },
+                                {
+                                    "name": "UNSPLASH_API_PREFIX",
+                                    "secretRef": "unsplash-api-prefix-secret-ref"
+                                },
+                                {
+                                    "name": "UNSPLASH_API_ACCESS_KEY",
+                                    "secretRef": "unsplash-api-access-key-secret-ref"
+                                },
+                                {
+                                    "name": "UNSPLASH_API_SECRET_KEY",
+                                    "secretRef": "unsplash-api-secret-key-secret-ref"
+                                }
+                            ]
+                        }
+                    ],
+                    "scale": {
+                        "minReplicas": 1,
+                        "maxReplicas": 1
+                    }
+                }
+            }
+        }
+    ]
+}
