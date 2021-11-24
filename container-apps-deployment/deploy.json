@@ -15,6 +15,15 @@
         "acr-password": {
             "type": "String"
         },
+        "acr-username": {
+            "type": "String"
+        },
+        "acr-server": {
+            "type": "String"
+        },
+        "acr-server-image-and-tag": {
+            "type": "String"
+        },
         "postgres-engine-secret-ref": {
             "type": "String"
         },
@@ -102,8 +111,9 @@
                     ],
                     "registries": [
                         {
-                            "server": "<AZURE_CONTAINER_REGISTRY>.azurecr.io",
-                            "username": "<AZURE_CONTAINER_REGISTRY_USERNAME>",
+                            // acr-server should be set to yourcontainerregistry.azurecr.io
+                            "server": "[parameters('acr-server')]",
+                            "username": "[parameters('acr-username')]",
                             "passwordSecretRef": "acr-password"
                         }
                     ]
@@ -111,8 +121,9 @@
                 "template": {
                     "containers": [
                         {
-                            "image": "<AZURE_CONTAINER_REGISTRY>.azurecr.io/<IMAGE>:<TAG>",
-                            "name": "<CONTAINER_NAME>",
+                            // acr-server should be set to yourcontainerregistry.azurecr.io/yourimagename:yourimagetag
+                            "image": "[parameters('acr-server-image-and-tag')]",
+                            "name": "nameofthecontainer",
                             "resources": {
                                 "cpu": 0.5,
                                 "memory": "1Gi"
