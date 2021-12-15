@@ -24,6 +24,9 @@
         "acr-server-image-and-tag": {
             "type": "String"
         },
+        "container-name": {
+            "type": "String"
+        },
         "postgres-engine-secret-ref": {
             "type": "String"
         },
@@ -58,7 +61,8 @@
             "name": "[parameters('name')]",
             "type": "Microsoft.Web/containerApps",
             "apiVersion": "2021-03-01",
-            "kind": "containerapp",
+            // 'container-name' can be any arbitrary name
+            "kind": "[parameters('container-name')]",
             "location": "[parameters('location')]",
             "properties": {
                 "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",

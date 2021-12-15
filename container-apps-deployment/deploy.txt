@@ -11,6 +11,7 @@ az deployment group create \
       acr-password="$ACR_PASSWORD" \
       acr-server="$ACR_SERVER" \
       acr-server-image-and-tag="$ACR_SERVER_IMAGE_AND_TAG" \
+      container-name="CONTAINER_NAME" \
       postgres-engine-secret-ref="$POSTGRES_ENGINE_SECRET_REF" \
       postgres-name-secret-ref="$POSTGRES_NAME_SECRET_REF" \
       postgres-user-secret-ref="$POSTGRES_USER_SECRET_REF" \

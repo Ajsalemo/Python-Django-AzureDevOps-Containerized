@@ -1,5 +1,5 @@
 import logging
-
+import time
 import requests
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
